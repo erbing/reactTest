@@ -1,4 +1,4 @@
-const a = 'this is webpack test'
+const a = 'this is webpack testsss'
 
 export default {
     name: a
