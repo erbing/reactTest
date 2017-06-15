@@ -10,10 +10,46 @@ module.exports = {
         path: path.resolve(__dirname, 'dist')
     },
     module: {
-        rules: []
+        // rules: [
+        //     {
+        //         test: /\.js?$/,
+        //         exclude: /node_modules/,
+        //         use: [
+        //             { 
+        //                 loader: 'babel-loader',
+        //                 options: {presets: ['react', 'es2015']}
+        //             },
+        //             // { 
+        //             //     loader: 'react-hot-loader',
+        //             //     options: {presets: ['react', 'es2015']}    
+        //             // }
+        //         ]
+        //     }
+        // ]
+        rules: [
+            {
+                test: /\.jsx?$/, // test 去判断是否为.js或.jsx,是的话就是进行es6和jsx的编译
+                exclude: /(node_modules|bower_components)/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ['es2015', 'react']
+                }
+            },
+            // {
+            //     test: /\.jsx?$/, // test 去判断是否为.js或.jsx,是的话就是进行es6和jsx的编译
+            //     exclude: /(node_modules|bower_components)/,
+            //     loader: 'react-hot-loader',
+            //     query: {
+            //         presets: ['es2015', 'react']
+            //     }
+            // }
+        ]
+    },
+    resolve: {
+        // 现在你import文件的时候可以直接使用import Func from './file'，不用再使用import Func from './file.js'
+        extensions: ['.js', '.jsx', '.json']
     },
     plugins: [
-
         new webpack.HotModuleReplacementPlugin(),   // 加入热插拔
         // new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.optimize.CommonsChunkPlugin({

@@ -1,3 +1,7 @@
-import a from './test/test.js'
+import react from 'react'
+import ReactDOM from 'react-dom'
 
-console.log(a)
+ReactDOM.render(
+    <div>hello world ! </div>,
+    document.getElementById('root')
+)
