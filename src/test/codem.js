@@ -1,4 +1,10 @@
 // 多行
+
+// 3
+// 1 2 3
+// 2 1 3
+// 3 2 1
+
 var n = parseInt(readline());
 var ans = 0;
 for(var i = 0;i < n; i++){
